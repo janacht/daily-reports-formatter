@@ -175,7 +175,7 @@ def read_activities(period, activities_file_path):
                 week_idx += 1
                 if line != 'Week {}'.format(week_idx+1):
                     raise RuntimeError('Invalid week (line {})'.
-									   format(line_idx+1))
+                                       format(line_idx+1))
                 current_week = period.weeks[week_idx]
                 working_days = current_week.get_working_days()
             elif line[:2] == '- ':
@@ -193,13 +193,13 @@ def read_activities(period, activities_file_path):
 
 
 def check_empty_days(period):
-	for week in period.weeks:
-		for idx, day in enumerate(week.days):
-			if day.is_working_day() and len(day.activities) == 0:
-				print('Warning: Day {} in week {} has no activities'.
-					  format(idx+1, week.idx+1))
-	
-	
+    for week in period.weeks:
+        for idx, day in enumerate(week.days):
+            if day.is_working_day() and len(day.activities) == 0:
+                print('Warning: Day {} in week {} has no activities'.
+                      format(idx+1, week.idx+1))
+    
+    
 def main():
     mandatory_weeks = MANDATORY_WEEKS
     weeks = parse_schedule('schedule.csv')
